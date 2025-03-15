@@ -7,9 +7,11 @@ function Get-Tracker {
         $currentTime = Get-Date
         $currentTimeString = $currentTime.ToString("HH:mm:ss")
         Write-Host "Current time: $currentTimeString"
+        Write-Host "Time left: $(($endTime - $currentTime).ToString("mm\:ss"))"
         if($currentTime -ge $endTime) {
             Write-Host "Time's up!"
-            Add-Type -AssemblyName PresentationFramework[System.Windows.MessageBox]::Show("This is a popup message for you to stop working!")
+            Add-Type -AssemblyName PresentationFramework
+            [System.Windows.MessageBox]::Show("This is a popup message for you to stop working!")
             break
         }
         Start-Sleep -Seconds 1
