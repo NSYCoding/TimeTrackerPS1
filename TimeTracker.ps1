@@ -39,6 +39,7 @@ function Set-TimeTrackerForWork {
         Start-Process -FilePath $processName -ErrorAction Stop
     }
     Get-Tracker -ProcessName $processName
+    Stop-Process -Name $processName -Force
 }
 
 Set-TimeTrackerForWork
